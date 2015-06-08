@@ -6,6 +6,7 @@ gem 'omniauth'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
+gem "paperclip", "~> 4.2"
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
