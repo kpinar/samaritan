@@ -13,5 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require jquery.easing.min
+//= require classie
+//= require gnmenu
+//= require jquery.scrollTo
+//= require nivo-lightbox.min
+//= require stellar
+//= require custom
 //= require turbolinks
 //= require_tree .
+
