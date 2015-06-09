@@ -24,6 +24,9 @@
       </nav>
     </li>
     <li><a href="/">SAMARIT</a></li>
+    <% if user_signed_in? == false %>
+      <li> <%= link_to "SIGN IN", new_user_session_path %></li>
+    <% end %>
     <li>
       <ul class="company-social">
         <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>

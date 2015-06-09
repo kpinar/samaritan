@@ -5,7 +5,7 @@
     <h1>samarit</h1>
     <p>crowdsourced crime reporting so you can get there safer</p>
     <% if user_signed_in? == false %>
-      <%= link_to "sign up", new_user_session_path, :class => "btn btn-skin scroll" %>
+      <%= link_to "sign up", new_user_registration_path, :class => "btn btn-skin scroll" %>
     <% end %>
     <% if user_signed_in? == true %>
       <a href="#about" class="btn btn-skin scroll">live map</a>
