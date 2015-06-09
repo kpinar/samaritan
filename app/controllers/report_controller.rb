@@ -3,6 +3,9 @@ class ReportController < ApplicationController
  	 @report = Report.create(report_params)
 	end
 
+	def index
+	end
+	
 	private
 
 	# Use strong_parameters for attribute whitelisting
