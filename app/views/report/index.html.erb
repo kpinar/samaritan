@@ -2,9 +2,20 @@
 <!-- Section: intro -->
 <section id="intro" class="intro">
   <div class="slogan">
-    <h1>This is Ninestars</h1>
-    <p>make awesome stuff with Bootstrap framework</p>
-    <a href="#about" class="btn btn-skin scroll">Learn more</a>
+    <h1>Samarit</h1>
+    <p>crowdsourced crime reporting for your neighborhood</p>
+    <p>
+      <% if current_user %>
+        <%= form_for(:user, :url => session_path(:user)) do |f| %>
+        <%= f.text_field :email %>
+        <%= f.password_field :password %>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+        <%= f.submit 'Sign in' %>
+        <%= link_to "Forgot your password?", new_password_path(:user) %>
+        <% end %>
+      <% end %>
+    <a href="#about" class="btn btn-skin scroll">live map</a>
   </div>
 </section>
 <!-- /Section: intro -->
