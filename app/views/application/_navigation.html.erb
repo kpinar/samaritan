@@ -27,11 +27,11 @@
     <li>
         <% if user_signed_in? == false %>
           <%= form_for(:user, :url => session_path(:user)) do |f| %>
-            <%= f.email_field :email, placeholder: "Email", autofocus: true, class: 'navbar-signup-form' %>
-            <%= f.password_field :password, placeholder: "Password", autocomplete: "off", class: 'navbar-signup-form' %>
-            <%= f.check_box :remember_me, class: 'navbar-signup-form' %>
-            <%= f.label :remember_me, class: 'navbar-signup-form' %>
-            <b><%= f.submit 'Sign in', class: 'navbar-signup-form' %></b>
+            <%= f.email_field :email, placeholder: "Email", autofocus: true, class: 'navbar-signin-form' %>
+            <%= f.password_field :password, placeholder: "Password", autocomplete: "off", class: 'navbar-signin-form' %>
+            <%= f.check_box :remember_me, class: 'navbar-signin-form' %>
+            <%= f.label :remember_me, class: 'navbar-signin-form' %>
+            <b><%= f.submit 'Sign in', class: 'navbar-signin-form' %></b>
           <% end %>
         <% end %>
     </li>
