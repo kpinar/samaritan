@@ -134,7 +134,7 @@ hr {
 		margin: 0;
 		padding: 0;
 		background: #fff;
-		color: #eb5d1e;
+		color: #F94844;
 		list-style: none;
 		text-transform: none;
 		font-weight: 300;
@@ -155,7 +155,7 @@ hr {
 .gn-menu-main a {
 		display: block;
 		height: 100%;
-		color: #eb5d1e;
+		color: #F94844;
 		text-decoration: none;
 		cursor: pointer;
 }
@@ -163,7 +163,7 @@ hr {
 .no-touch .gn-menu-main a:hover,
 .no-touch .gn-menu li.gn-search-item:hover,
 .no-touch .gn-menu li.gn-search-item:hover a {
-		background: #eb5d1e;
+		background: #F94844;
 		color: white;
 }
 
@@ -260,7 +260,7 @@ input.gn-search {
 		outline: none;
 		border: none;
 		background: transparent;
-		color: #eb5d1e;
+		color: #F94844;
 		font-weight: 300;
 		font-family: 'Lato', Arial, sans-serif;
 		cursor: pointer;
@@ -269,19 +269,19 @@ input.gn-search {
 /* placeholder */
 
 .gn-search::-webkit-input-placeholder {
-		color: #eb5d1e
+		color: #F94844
 }
 
 .gn-search:-moz-placeholder {
-		color: #eb5d1e
+		color: #F94844
 }
 
 .gn-search::-moz-placeholder {
-		color: #eb5d1e
+		color: #F94844
 }
 
 .gn-search:-ms-input-placeholder {
-		color: #eb5d1e
+		color: #F94844
 }
 
 /* hide placeholder when active in Chrome */
@@ -396,20 +396,20 @@ input.gn-search:focus {
 		vertical-align: -2px;
 		width: 30px;
 		height: 3px;
-		background: #eb5d1e;
-		box-shadow: 0 3px white, 0 -6px #eb5d1e, 0 -9px white, 0 -12px #eb5d1e;
+		background: #F94844;
+		box-shadow: 0 3px white, 0 -6px #F94844, 0 -9px white, 0 -12px #F94844;
 		content: '';
 }
 
 .no-touch .gn-icon-menu:hover::before,
 .no-touch .gn-icon-menu.gn-selected:hover::before {
 		background: white;
-		box-shadow: 0 3px #eb5d1e, 0 -6px white, 0 -9px #eb5d1e, 0 -12px white;
+		box-shadow: 0 3px #F94844, 0 -6px white, 0 -9px #F94844, 0 -12px white;
 }
 
 .gn-icon-menu.gn-selected::before {
-		background: #eb5d1e;
-		box-shadow: 0 3px white, 0 -6px #eb5d1e, 0 -9px white, 0 -12px #eb5d1e;
+		background: #F94844;
+		box-shadow: 0 3px white, 0 -6px #F94844, 0 -9px white, 0 -12px #F94844;
 }
 
 /* styles for opening menu */
@@ -471,7 +471,7 @@ input.gn-search:focus {
 	 font-size: 40px;
 }
 .intro .slogan p {
-	color: #eee;
+	color: #fff;
 	margin-bottom: 50px;
 	font-size: 20px;
 }

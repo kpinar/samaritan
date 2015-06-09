@@ -24,16 +24,16 @@
       </nav>
     </li>
     <li><a href="/">SAMARIT</a></li>
-    <% if user_signed_in? == false %>
-      <li> <%= link_to "SIGN IN", new_user_session_path %></li>
-    <% end %>
     <li>
-      <ul class="company-social">
-        <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-        <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-        <li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
-        <li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-      </ul>
+        <% if user_signed_in? == false %>
+          <%= form_for(:user, :url => session_path(:user)) do |f| %>
+            <%= f.email_field :email, placeholder: "Email", autofocus: true, class: 'navbar-signup-form' %>
+            <%= f.password_field :password, placeholder: "Password", autocomplete: "off", class: 'navbar-signup-form' %>
+            <%= f.check_box :remember_me, class: 'navbar-signup-form' %>
+            <%= f.label :remember_me, class: 'navbar-signup-form' %>
+            <b><%= f.submit 'Sign in', class: 'navbar-signup-form' %></b>
+          <% end %>
+        <% end %>
     </li>
   </ul>
 </div>
