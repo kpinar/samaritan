@@ -2,24 +2,19 @@
 <!-- Section: intro -->
 <section id="intro" class="intro">
   <div class="slogan">
-    <h1>Samarit</h1>
-    <p>crowdsourced crime reporting for your neighborhood</p>
-    <p>
-      <% if current_user %>
-        <%= form_for(:user, :url => session_path(:user)) do |f| %>
-        <%= f.text_field :email %>
-        <%= f.password_field :password %>
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-        <%= f.submit 'Sign in' %>
-        <%= link_to "Forgot your password?", new_password_path(:user) %>
-        <% end %>
-      <% end %>
-    <a href="#about" class="btn btn-skin scroll">live map</a>
+    <h1>samarit</h1>
+    <p>crowdsourced crime reporting so you can get there safer</p>
+    <% if user_signed_in? == false %>
+      <%= link_to "sign up", new_user_session_path, :class => "btn btn-skin scroll" %>
+    <% end %>
+    <% if user_signed_in? == true %>
+      <a href="#about" class="btn btn-skin scroll">live map</a>
+    <% end %>
   </div>
 </section>
 <!-- /Section: intro -->
 <!-- Section: about -->
+<% if user_signed_in? == true %>
 <section id="about" class="home-section text-center bg-gray">
   <div class="heading-about marginbot-50">
     <div class="container">
@@ -202,6 +197,7 @@
     </div>
   </div>
 </section>
+<% end %>
 <!-- /Section: works -->
 <!-- Section: contact -->
 <section id="contact" class="home-section text-center">
@@ -290,7 +286,6 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-lg-12">
-        <p>Copyright &copy; 2014 Ninestars - by <a href="http://bootstraptaste.com">Bootstraptaste</a></p>
       </div>
     </div>
   </div>
