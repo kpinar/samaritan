@@ -67,6 +67,10 @@ hr {
   margin-top: 10px;
 }
 
+.report-form {
+	margin-top: 50px;
+}
+
 /* margins */
 .marginbot-0{margin-bottom:0 !important;}
 .marginbot-10{margin-bottom:10px !important;}
