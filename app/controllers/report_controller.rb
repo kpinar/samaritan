@@ -2,6 +2,9 @@ class ReportController < ApplicationController
 
 	def index
 		@reports = Report.all
+		@report_last = Report.last
+		@report_lat = @report_last.latitude
+		@report_lon = @report_last.longitude
 	end
 
 	def create
