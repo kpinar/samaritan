@@ -8,7 +8,8 @@
       <%= link_to "sign up", new_user_registration_path, :class => "btn btn-skin scroll" %>
     <% end %>
     <% if user_signed_in? == true %>
-      <a href="#about" class="btn btn-skin scroll">live map</a>
+      <a href="#about" class="btn btn-skin scroll">live map</a> <br ><br >
+      <p class="btn btn-skin scroll"><%= link_to 'Create Report', new_report_path %></p>
     <% end %>
   </div>
 </section>

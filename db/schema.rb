@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608215451) do
+ActiveRecord::Schema.define(version: 20150610154028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "reports", force: :cascade do |t|
     t.string   "title"
-    t.string   "type"
     t.datetime "time"
     t.text     "description"
     t.datetime "created_at",          null: false
@@ -27,6 +26,10 @@ ActiveRecord::Schema.define(version: 20150608215451) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+    t.string   "report_type"
   end
 
   create_table "users", force: :cascade do |t|
