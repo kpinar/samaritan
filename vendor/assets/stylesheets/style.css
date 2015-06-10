@@ -606,7 +606,7 @@ body {
     background:none;
   }
   ::-webkit-scrollbar-thumb {
-    background:#00853e;
+    background:#F94844;
     border-radius:0;
   }
 
@@ -887,6 +887,7 @@ footer a:hover {
 
 #map {
 	height: 500px;
+	margin-top: 75px;
 }
 
 

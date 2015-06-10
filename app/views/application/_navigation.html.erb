@@ -11,9 +11,9 @@
               <a class="gn-icon gn-icon-search"><span>Search</span></a>
             </li>
             <% if user_signed_in? %>
-              <li><a href="#about" class="gn-icon gn-icon-download">About</a></li>
-              <li><a href="#service" class="gn-icon gn-icon-cog">Profile</a></li>
-              <li><a href="#works" class="gn-icon gn-icon-help">Works</a></li>
+              <li><a href="#about" class="gn-icon gn-icon-earth">Map</a></li>
+              <li><a href="/users/edit" class="gn-icon gn-icon-cog">Profile</a></li>
+              <li><a href="#works" class="gn-icon gn-icon-help">FAQ</a></li>
             <% end %>
             <li><a href="#contact" class="gn-icon gn-icon-archive">Contact</a></li>
           </ul>
@@ -23,8 +23,9 @@
     </li>
     <li><a href="/">SAMARIT</a></li>
       <% if user_signed_in? %>
-        <li><%= link_to('Profile', edit_user_registration_path) %></li>
-        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+        <div class = "logoutbutton">
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete, :style => "align :right") %>
+        </div>
       <% end %>     
     <li>
         <% if user_signed_in? == false %>
