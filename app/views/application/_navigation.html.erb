@@ -10,20 +10,22 @@
               <input placeholder="Search" type="search" class="gn-search">
               <a class="gn-icon gn-icon-search"><span>Search</span></a>
             </li>
-            <li>
-              <a href="#about" class="gn-icon gn-icon-download">About</a>
-            </li>
-            <li><a href="#service" class="gn-icon gn-icon-cog">Profile</a></li>
-            <li><a href="#works" class="gn-icon gn-icon-help">Works</a></li>
-            <li>
-              <a href="#contact" class="gn-icon gn-icon-archive">Contact</a>
-            </li>
+            <% if user_signed_in? %>
+              <li><a href="#about" class="gn-icon gn-icon-download">About</a></li>
+              <li><a href="#service" class="gn-icon gn-icon-cog">Profile</a></li>
+              <li><a href="#works" class="gn-icon gn-icon-help">Works</a></li>
+            <% end %>
+            <li><a href="#contact" class="gn-icon gn-icon-archive">Contact</a></li>
           </ul>
         </div>
         <!-- /gn-scroller -->
       </nav>
     </li>
     <li><a href="/">SAMARIT</a></li>
+      <% if user_signed_in? %>
+        <li><%= link_to('Profile', edit_user_registration_path) %></li>
+        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+      <% end %>     
     <li>
         <% if user_signed_in? == false %>
           <%= form_for(:user, :url => session_path(:user)) do |f| %>
