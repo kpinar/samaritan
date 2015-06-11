@@ -17,17 +17,12 @@
 <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 
 <p class="navbar-text pull-right">
-<!--
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
+
 <% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
+  <p class="alert alert-danger"><br><br><%= alert %></p>
 <% end %>
--->
+
 <%= render 'navigation' %>
-
-
 
 <%= yield %>
 
