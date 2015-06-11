@@ -4,8 +4,8 @@
   <%= f.input :address %>
   <%= f.input :description %>
   <%= f.input :time, as: :datetime%>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "btn btn-skin scroll" %>
 <% end %>
-
-<%= link_to "Back to Home", report_index_path %>
+<br>
+<%= link_to "Back", report_index_path, class: "btn btn-skin scroll" %>
 </div>
