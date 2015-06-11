@@ -1,0 +1,11 @@
+<h1>All Reports</h1> 
+
+<h2>
+	<% @reports.each do |r| %>
+	<%= link_to r.title , report_path(current_user, r) %>
+		<br/>
+		<p><%= r.description %></p>
+	<% end %>
+</h2>
+
+<button><%= link_to 'New Board' , new_user_board_path(current_user) %></button>

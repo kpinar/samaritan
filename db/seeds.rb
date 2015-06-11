@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+test = Report.create([title: 'crime', time:"2015-06-11 08:30:45", 
+	description: "armed robbery", latitude: '40.0397', longitude: '-76.30144'])
+

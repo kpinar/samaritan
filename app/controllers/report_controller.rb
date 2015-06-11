@@ -29,6 +29,10 @@ class ReportController < ApplicationController
 
 	end
 
+	def user_profile
+		@reports = current_user.reports
+	end
+
 	def create
 		@report = Report.new(report_params)
 		if @report.save
