@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20150611113446) do
 
   create_table "reports", force: :cascade do |t|
     t.string   "title"
-    t.datetime "time"
     t.text     "description"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
@@ -36,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150611113446) do
     t.float    "longitude"
     t.string   "address"
     t.string   "report_type"
+    t.string   "time"
   end
 
   create_table "users", force: :cascade do |t|

@@ -16,6 +16,7 @@ class ReportController < ApplicationController
             properties: {
                 title: report.report_type,
                 description: report.address,
+                #if report.report_type == ""
                 'marker-size': 'large',
                 'marker-color': '#BE9A6B',
                 'marker-symbol': 'cafe'
@@ -52,6 +53,6 @@ class ReportController < ApplicationController
 	# Be sure to update your create() and update() controller methods.
 
 	def report_params
-  		params.require(:report).permit(:title, :type, :time, :description, :address, :latitude, :longitude)
+  		params.require(:report).permit(:title, :time, :description, :address, :latitude, :longitude, :report_type)
 	end
 end
