@@ -590,12 +590,12 @@ body {
   .listings .item:last-child { border-bottom:none; }
   .listings .item .title {
     display:block;
-    color:#00853e;
+    color:#F94844;
     font-weight:700;
   }
   .listings .item .title small { font-weight:400; }
   .listings .item.active .title,
-  .listings .item .title:hover { color:#8cc63f; }
+  .listings .item .title:hover { color:#7E8091; }
   .listings .item.active {
     background-color:#f8f8f8;
   }

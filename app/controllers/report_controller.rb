@@ -8,20 +8,49 @@ class ReportController < ApplicationController
 
 		@geojson = Array.new
 		@reports.each do |report|
-			@geojson << {
-					type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [report.longitude, report.latitude]},
-            properties: {
-                title: report.report_type,
-                description: report.address,
-                #if report.report_type == ""
-                'marker-size': 'large',
-                'marker-color': '#BE9A6B',
-                'marker-symbol': 'cafe'
-            }
-			}
+			if report.report_type == ("Assault"||"Hate Crime"||"Shooting"||"Kidnapping"||"Sexual Assault"||"Stabbing"||"Homicide")
+				@geojson << {
+						type: 'Feature',
+	            geometry: {
+	              type: 'Point',
+	              coordinates: [report.longitude, report.latitude]},
+	            properties: {
+	                title: report.report_type,
+	                description: report.address,
+	                'marker-size': 'large',
+	                'marker-color': '#F53333',
+	                'marker-symbol': 'hospital'
+	            }
+				}
+			elsif report.report_type == ("Drug"||"Harassment"||"Stalking")
+				@geojson << {
+						type: 'Feature',
+	            geometry: {
+	              type: 'Point',
+	              coordinates: [report.longitude, report.latitude]},
+	            properties: {
+	                title: report.report_type,
+	                description: report.address,
+	                'marker-size': 'large',
+	                'marker-color': '#FFA347',
+	                'marker-symbol': 'hospital'
+	            }
+				}
+      else report.report_type == ("Theft"||"Arson"||"Disorderly Conduct"||"Vandalism")
+      	@geojson << {
+						type: 'Feature',
+	            geometry: {
+	              type: 'Point',
+	              coordinates: [report.longitude, report.latitude]},
+	            properties: {
+	                title: report.report_type,
+	                description: report.address,
+	                'marker-size': 'large',
+	                'marker-color': '#FFD738',
+	                'marker-symbol': 'hospital'
+	            }
+				}
+      end
 		end
 		respond_to do |format|
 			format.html

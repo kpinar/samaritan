@@ -1,6 +1,6 @@
 <div class="report-form">
 <%= simple_form_for :report, url: report_index_path do |f| %>
-  <%= f.input :report_type, collection: ["Abuse","Arson","Assault","Burglery","Disorderly Conduct","Drug","DUI","Harassment","Hate Crime","Homicide","Kidnapping","Sexual Assault","Shooting","Stabbing","Stalking","Theft","Vandalism"] %>
+  <%= f.input :report_type, collection: ["Arson","Assault","Disorderly Conduct","Drug","Harassment","Hate Crime","Homicide","Kidnapping","Sexual Assault","Shooting","Stabbing","Stalking","Theft","Vandalism"] %>
   <%= f.input :address, placeholder: "123 Street City, State" %>
   <%= f.input :description, as: :text, placeholder: "Details here..." %>
   <%= f.input :time, collection: ["Just Now","15 Minutes Ago","30 Minutes Ago","45 Minutes Ago","1 Hour Ago","> 1 Hour Ago"], label: "When", default: ["Just Now"] %>
