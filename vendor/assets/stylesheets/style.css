@@ -519,6 +519,7 @@ input.gn-search:focus {
 ============================ */
 
 .about-section {
+    height: 100%;
     padding-top: 50px;
     padding-bottom: 110px;
 	display:block;
@@ -550,6 +551,7 @@ body {
   a:hover { color:#101010; }
 
   .sidebar {
+    margin-top: 60px;
     position:absolute;
     width:33.3333%;
     height:100%;
@@ -890,8 +892,8 @@ footer a:hover {
 }
 
 #map {
-	height: 500px;
-	margin-top: 75px;
+  margin-top: 60px;
+  background-size: cover;
 }
 
 
