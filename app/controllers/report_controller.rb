@@ -8,7 +8,7 @@ class ReportController < ApplicationController
 
 		@geojson = Array.new
 		@reports.each do |report|
-			if report.report_type == ("Assault"||"Hate Crime"||"Shooting"||"Kidnapping"||"Sexual Assault"||"Stabbing"||"Homicide")
+			if report.report_type == "Assault" || report.report_type == "Hate Crime" || report.report_type == "Shooting" || report.report_type == "Kidnapping" || report.report_type == "Sexual Assault" || report.report_type == "Stabbing" || report.report_type == "Homicide"
 				@geojson << {
 						type: 'Feature',
 	            geometry: {
@@ -22,7 +22,7 @@ class ReportController < ApplicationController
 	                'marker-symbol': 'hospital'
 	            }
 				}
-			elsif report.report_type == ("Drug"||"Harassment"||"Stalking")
+			elsif report.report_type == "Drug"|| report.report_type == "Harassment"|| report.report_type == "Stalking"
 				@geojson << {
 						type: 'Feature',
 	            geometry: {
@@ -36,7 +36,7 @@ class ReportController < ApplicationController
 	                'marker-symbol': 'hospital'
 	            }
 				}
-      else report.report_type == ("Theft"||"Arson"||"Disorderly Conduct"||"Vandalism")
+      else report.report_type == "Theft"|| report.report_type == "Arson"|| report.report_type == "Disorderly Conduct"|| report.report_type == "Vandalism"
       	@geojson << {
 						type: 'Feature',
 	            geometry: {

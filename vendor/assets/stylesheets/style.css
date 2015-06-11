@@ -625,6 +625,25 @@ body {
     visibility:hidden;
   }
 
+  .info {
+    background:#fff;
+    position:absolute;
+    width:260px;
+    top:10px;
+    right:10px;
+    border-radius:2px;
+    }
+    .info .item {
+      display:block;
+      border-bottom:1px solid #eee;
+      padding:10px;
+      text-decoration:none;
+      }
+      .info .item small { color:#888; }
+      .info .item:hover,
+      .info .item.active { background:#f8f8f8; }
+      .info .item:last-child { border-bottom:none; }
+
   /* Marker tweaks */
   .leaflet-popup-close-button {
     display:none;
