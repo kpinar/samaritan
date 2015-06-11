@@ -291,33 +291,9 @@
 
         locations.setGeoJSON(geojson);
 
-        // Adding User input... take 1
-          L.mapbox.featureLayer({
-            // this feature is in the GeoJSON format: see geojson.org
-            // for the full specification
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              // coordinates here are in longitude, latitude order because
-              // x, y is the standard for GeoJSON and many formats
-              coordinates: [ 
-              "<%=escape_javascript @report_lon.to_s %>",
-              "<%=escape_javascript @report_lat.to_s %>",
-                //-77.03221142292,
-                //38.913371603574 
-              ]
-              },
-            properties: {
-                title: "<%=escape_javascript @report_last.report_type.to_s %>",
-                description: "<%=escape_javascript @report_last.address.to_s %>",
-                // one can customize markers by adding simplestyle properties
-                // https://www.mapbox.com/guides/an-open-platform/#simplestyle
-                'marker-size': 'large',
-                'marker-color': '#BE9A6B',
-                'marker-symbol': 'cafe'
-            }
-          }).addTo(map);
-        // Adding User input... take 1
+        var myLocations = L.mapbox.featureLayer()
+          .loadURL('/report.json')
+          .addTo(map)
         
 
         function setActive(el) {

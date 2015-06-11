@@ -5,6 +5,28 @@ class ReportController < ApplicationController
 		@report_last = Report.last
 		@report_lat = @report_last.latitude
 		@report_lon = @report_last.longitude
+
+		@geojson = Array.new
+		@reports.each do |report|
+			@geojson << {
+					type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [report.longitude, report.latitude]},
+            properties: {
+                title: report.report_type,
+                description: report.address,
+                'marker-size': 'large',
+                'marker-color': '#BE9A6B',
+                'marker-symbol': 'cafe'
+            }
+			}
+		end
+		respond_to do |format|
+			format.html
+			format.json { render json: @geojson }
+		end
+
 	end
 
 	def create
