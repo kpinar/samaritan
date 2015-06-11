@@ -8,14 +8,14 @@
     <% end %>
     <% if user_signed_in? == true %>
       <a href="#about" class="btn btn-skin scroll">live map</a> <br ><br >
-      <p class="btn btn-skin scroll"><%= link_to 'Create Report', new_report_path %></p>
     <% end %>
   </div>
 </section>
 <!-- /Section: intro -->
 <!-- Section: about -->
-<% if user_signed_in? == true %>
 <section id="about" class="about-section text-center bg-gray">
+  <% if user_signed_in? == true %>
+  <%= link_to 'Create Report', new_report_path, class: "btn btn-skin scroll" %>
   <div class="heading-about margintop-230">
     <div class="container">
       <div class="row">
@@ -380,7 +380,7 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
           <div class="section-heading">
-            <h2>Our Services</h2>
+            <h2>About</h2>
             <p>Lorem ipsum dolor sit amet, no nisl mentitum recusabo per, vim at blandit qualisque dissentiunt. Diam efficiantur conclusionemque ut has</p>
           </div>
         </div>
