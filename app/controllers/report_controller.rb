@@ -62,17 +62,35 @@ class ReportController < ApplicationController
 
 	end
 
+	def user_profile
+		@reports = current_user.reports
+	end
+
 	def create
-		@report = Report.new(report_params)
+		@report = current_user.reports.build(report_params)
 		if @report.save
-  		redirect_to root_path
-  	else
-  		render :new
-  	end
+  			redirect_to root_path
+	  	else
+	  		render :new
+	  	end
 	end
 
 	def new
-		@report = Report.new
+		@report = current_user.reports.build
+	end
+
+	def edit
+		@report = current_user.reports.find(params[:id])
+	end
+
+	def update
+    	@report = current_user.reports.find(params[:id])
+ 
+    	if @report.update(report_params)
+      		redirect_to root_path
+    	else
+      		render :edit
+    	end
 	end
 	
 	private
