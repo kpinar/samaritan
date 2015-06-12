@@ -5,7 +5,7 @@ class ReportController < ApplicationController
 		@report_last = Report.last
 		@report_lat = @report_last.latitude
 		@report_lon = @report_last.longitude
-
+		@last_time = Report.last.created_at.strftime("%b%d %I:%M%p")
 		@geojson = Array.new
 		@reports.each do |report|
 			if report.report_type == "Assault" || report.report_type == "Hate Crime" || report.report_type == "Shooting" || report.report_type == "Kidnapping" || report.report_type == "Sexual Assault" || report.report_type == "Stabbing" || report.report_type == "Homicide"
@@ -18,6 +18,7 @@ class ReportController < ApplicationController
 	                title: report.report_type,
 	                description: report.description,
 	                address: report.address,
+	              	time_when: report.created_at.strftime("%b %d | %I:%M%p"),
 	                'marker-size': 'large',
 	                'marker-color': '#F53333',
 	                'marker-symbol': 'hospital'
@@ -33,6 +34,7 @@ class ReportController < ApplicationController
 	                title: report.report_type,
 	                description: report.description,
 	                address: report.address,
+	                time_when: report.created_at.strftime("%b %d | %I:%M%p"),
 	                'marker-size': 'large',
 	                'marker-color': '#FFA347',
 	                'marker-symbol': 'hospital'
@@ -48,6 +50,7 @@ class ReportController < ApplicationController
 	                title: report.report_type,
 	                description: report.description,
 	                address: report.address,
+	                time_when: report.created_at.strftime("%b %d | %I:%M%p"),
 	                'marker-size': 'large',
 	                'marker-color': '#FFD738',
 	                'marker-symbol': 'hospital'

@@ -47,10 +47,10 @@
 
         myLocations.on('ready', function(e) {
             myLocations.eachLayer(function(layer) {
-                var item = markerList.appendChild(document.createElement('div'));
+                var item = markerList.insertBefore(item, document.createElement('div').firstChild);
                 item.className = "item";
                 var link = item.appendChild(document.createElement('a'));
-                link.innerHTML = layer.toGeoJSON().properties.title;
+                link.innerHTML = layer.toGeoJSON().properties.title + '<br >' + layer.toGeoJSON().properties.time_when;
                 link.className = 'title';
                 link.innerHTML += '<br /><small class="quiet">' + layer.toGeoJSON().properties.address + '</small>';
               
@@ -99,7 +99,6 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
           <div class="section-heading">
-          <div id="txt"></div>
             <h2>About</h2>
             <p>Samarit is a crowdsourced crime reporting platform. By allowing users to upload the type, 
             location and time of a crime incident, it generates hotspots so that fellow citizens 
