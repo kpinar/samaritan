@@ -47,7 +47,7 @@
 
         myLocations.on('ready', function(e) {
             myLocations.eachLayer(function(layer) {
-                var item = markerList.insertBefore(item, document.createElement('div').firstChild);
+                var item = markerList.appendChild(document.createElement('div'));
                 item.className = "item";
                 var link = item.appendChild(document.createElement('a'));
                 link.innerHTML = layer.toGeoJSON().properties.title + '<br >' + layer.toGeoJSON().properties.time_when;
@@ -148,6 +148,69 @@
   </div>
 </section>
 <!-- /Section: services -->
+<!-- Section: works -->
+<section id="works" class="home-section text-center bg-gray">
+  <div class="heading-works marginbot-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="section-heading">
+            <h2>FAQ</h2>
+            <p>Lorem ipsum dolor sit amet, no nisl mentitum recusabo per, vim at blandit qualisque dissentiunt. Diam efficiantur conclusionemque ut has</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12" >
+        <div class="row gallery-item">
+          <div class="col-md-3">
+            <a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+            <img src="img/works/1.jpg" class="img-responsive" alt="img">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+            <img src="img/works/2.jpg" class="img-responsive" alt="img">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="img/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+            <img src="img/works/3.jpg" class="img-responsive" alt="img">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+            <img src="img/works/4.jpg" class="img-responsive" alt="img">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+            <img src="img/works/5.jpg" class="img-responsive" alt="img">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="img/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+            <img src="img/works/6.jpg" class="img-responsive" alt="img">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="img/works/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+            <img src="img/works/7.jpg" class="img-responsive" alt="img">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="img/works/8.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+            <img src="img/works/8.jpg" class="img-responsive" alt="img">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <% end %>
 <!-- /Section: works -->
 <!-- Section: contact -->
