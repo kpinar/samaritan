@@ -15,22 +15,10 @@
 <!-- Section: about -->
 <section id="about" class="about-section text-center bg-gray">
   <% if user_signed_in? == true %>
-  <%= link_to 'Create Report', new_report_path, class: "btn btn-skin scroll" %>
-  <div class="heading-about margintop-230">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-          <div class="section-heading">
-            <h2>Reporting</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container ">
     <div class="row">
+
       <div class='sidebar'>
-      <div id='listings' class='listings'></div>
+      <div id='listings' class='listings'>  <%= link_to 'Create Report', new_report_path, class: "btn-pos btn btn-skin scroll" %></div>
       </div>
       <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css' rel='stylesheet' />

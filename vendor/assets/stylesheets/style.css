@@ -1,6 +1,10 @@
 /* ==== Google font ==== */
 @import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:700|Merriweather:400italic');
 
+.btn-pos {
+  width: 100%;
+  border-radius: 0 !important;
+}
 
 body {
     width: 100%;
@@ -521,9 +525,8 @@ input.gn-search:focus {
 
 .about-section {
     height: 100%;
-    padding-top: 50px;
     padding-bottom: 110px;
-	display:block;
+		display:block;
     position:relative;
     z-index:120;
 }
@@ -552,7 +555,6 @@ body {
   a:hover { color:#101010; }
 
   .sidebar {
-    margin-top: 60px;
     position:absolute;
     width:33.3333%;
     height:100%;
@@ -893,7 +895,6 @@ footer a:hover {
 }
 
 #map {
-  margin-top: 60px;
   background-size: cover;
 }
 
