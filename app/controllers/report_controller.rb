@@ -81,7 +81,7 @@ class ReportController < ApplicationController
 	end
 
 	def update
-    	@report = Report.find(params[:id])
+    	@report = current_user.reports.find(params[:id])
  
     	if @report.update(report_params)
       		redirect_to root_path
