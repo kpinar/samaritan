@@ -12,8 +12,26 @@
    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
    
   <%= csrf_meta_tags %>
+  
+<script>
+  function startTime() {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML = h+":"+m+":"+s;
+    var t = setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
 </head>
-<body data-spy="scroll">
+<body data-spy="scroll" onload="startTime()">
 <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 
 <p class="navbar-text pull-right">
