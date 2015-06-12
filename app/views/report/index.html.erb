@@ -23,6 +23,10 @@
       <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css' rel='stylesheet' />
 <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/css/font-awesome.min.css' rel='stylesheet' />
+
+<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
       <div id='map' class='map'> </div>
         <script>
         L.mapbox.accessToken = 'pk.eyJ1IjoibWJpZ2dpbnMiLCJhIjoiMTdiMjNiZDIzNmRkZWQzNGFkYmM4NjEwZWVhNDk0ZTkifQ.EXAD9MHfkO-LURfX3kqGyQ';
@@ -36,18 +40,6 @@
           .loadURL('/report.json')
           .addTo(map)
 
-        // Clusters take 2
-          // var markers = new L.MarkerClusterGroup(myLocations);
-
-          //     for (var i = 0; i < addressPoints.length; i++) {
-          //         var a = addressPoints[i];
-          //         var title = a[2];
-          //         var marker = L.marker(new L.LatLng(a[0], a[1]), {
-          //         });
-          //         markers.addLayer(marker);
-          //     }
-          //     map.addLayer(markers);
-        // Clusters take 2
    
 
         // List take 2
@@ -74,6 +66,21 @@
             });
         });
         // List take 2
+
+        // Clusters take 2
+        // Since featureLayer is an asynchronous method, we use the `.on('ready'`
+        // call to only use its marker data once we know it is actually loaded.
+        myLocations.on('ready', function(e) {
+            // The clusterGroup gets each marker in the group added to it
+            // once loaded, and then is added to the map
+            var clusterGroup = new L.MarkerClusterGroup();
+            e.target.eachLayer(function(layer) {
+                clusterGroup.addLayer(layer);
+            });
+            map.addLayer(clusterGroup);
+        });
+        // Clusters take 2
+
 
       // Search Bar Functionality & Locator
       map
