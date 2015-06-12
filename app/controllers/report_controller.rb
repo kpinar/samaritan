@@ -8,20 +8,49 @@ class ReportController < ApplicationController
 
 		@geojson = Array.new
 		@reports.each do |report|
-			@geojson << {
-					type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [report.longitude, report.latitude]},
-            properties: {
-                title: report.report_type,
-                description: report.address,
-                #if report.report_type == ""
-                'marker-size': 'large',
-                'marker-color': '#BE9A6B',
-                'marker-symbol': 'cafe'
-            }
-			}
+			if report.report_type == "Assault" || report.report_type == "Hate Crime" || report.report_type == "Shooting" || report.report_type == "Kidnapping" || report.report_type == "Sexual Assault" || report.report_type == "Stabbing" || report.report_type == "Homicide"
+				@geojson << {
+						type: 'Feature',
+	            geometry: {
+	              type: 'Point',
+	              coordinates: [report.longitude, report.latitude]},
+	            properties: {
+	                title: report.report_type,
+	                description: report.address,
+	                'marker-size': 'large',
+	                'marker-color': '#F53333',
+	                'marker-symbol': 'hospital'
+	            }
+				}
+			elsif report.report_type == "Drug"|| report.report_type == "Harassment"|| report.report_type == "Stalking"
+				@geojson << {
+						type: 'Feature',
+	            geometry: {
+	              type: 'Point',
+	              coordinates: [report.longitude, report.latitude]},
+	            properties: {
+	                title: report.report_type,
+	                description: report.address,
+	                'marker-size': 'large',
+	                'marker-color': '#FFA347',
+	                'marker-symbol': 'hospital'
+	            }
+				}
+      else report.report_type == "Theft"|| report.report_type == "Arson"|| report.report_type == "Disorderly Conduct"|| report.report_type == "Vandalism"
+      	@geojson << {
+						type: 'Feature',
+	            geometry: {
+	              type: 'Point',
+	              coordinates: [report.longitude, report.latitude]},
+	            properties: {
+	                title: report.report_type,
+	                description: report.address,
+	                'marker-size': 'large',
+	                'marker-color': '#FFD738',
+	                'marker-symbol': 'hospital'
+	            }
+				}
+      end
 		end
 		respond_to do |format|
 			format.html

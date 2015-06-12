@@ -1,6 +1,10 @@
 /* ==== Google font ==== */
 @import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:700|Merriweather:400italic');
 
+.btn-pos {
+  width: 100%;
+  border-radius: 0 !important;
+}
 
 body {
     width: 100%;
@@ -50,6 +54,7 @@ a:hover,
 a:focus {
     text-decoration: none;
     color: #176e61;
+    cursor: pointer;
 }
 
 .light {
@@ -519,9 +524,9 @@ input.gn-search:focus {
 ============================ */
 
 .about-section {
-    padding-top: 50px;
+    height: 100%;
     padding-bottom: 110px;
-	display:block;
+		display:block;
     position:relative;
     z-index:120;
 }
@@ -590,12 +595,12 @@ body {
   .listings .item:last-child { border-bottom:none; }
   .listings .item .title {
     display:block;
-    color:#00853e;
+    color:#F94844;
     font-weight:700;
   }
   .listings .item .title small { font-weight:400; }
   .listings .item.active .title,
-  .listings .item .title:hover { color:#8cc63f; }
+  .listings .item .title:hover { color:#7E8091; }
   .listings .item.active {
     background-color:#f8f8f8;
   }
@@ -636,7 +641,7 @@ body {
     padding:0;
   }
   .leaflet-popup-content h3 {
-    background:#91c949;
+    background:#FA625A;
     color:#fff;
     margin:0;
     display:block;
@@ -890,8 +895,7 @@ footer a:hover {
 }
 
 #map {
-	height: 500px;
-	margin-top: 75px;
+  background-size: cover;
 }
 
 

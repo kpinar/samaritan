@@ -6,10 +6,10 @@
       <nav class="gn-menu-wrapper">
         <div class="gn-scroller">
           <ul class="gn-menu">
-            <li class="gn-search-item">
+           <!-- <li class="gn-search-item">
               <input placeholder="Search" type="search" class="gn-search">
               <a class="gn-icon gn-icon-search"><span>Search</span></a>
-            </li>
+            </li> -->
             <% if controller.controller_name == 'report' && controller.action_name == 'index' %>
               <% if user_signed_in? %>
                 <li><a href="#about" class="gn-icon gn-icon-earth">Map</a></li>
@@ -19,7 +19,7 @@
               <li><a href="#service" class="gn-icon gn-icon-help">About</a></li>
               <li><a href="#contact" class="gn-icon gn-icon-archive">Contact</a></li>
             <% end %>
-            <% if user_signed_in? && controller.controller_name != 'report' && controller.action_name != 'index' %>
+            <% if user_signed_in? && controller.action_name != 'index' %>
               <li><a href="/report#about" class="gn-icon gn-icon-earth">Map</a></li>
               <li><a href="/users/edit" class="gn-icon gn-icon-cog">Profile</a></li>
               <li><a href="/report/new" class="gn-icon gn-icon-download">Create Report</a></li>
@@ -31,12 +31,14 @@
         <!-- /gn-scroller -->
       </nav>
     </li>
-    <li><%= link_to (image_tag "samaritwebsize.png"), report_index_path %></li>
-      <% if user_signed_in? %>
-        <div class = "logoutbutton">
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete, :style => "align :right") %>
-        </div>
-      <% end %>     
+    <li>
+      <%= link_to (image_tag "samaritwebsize.png"), report_index_path %>
+    </li>
+    <% if user_signed_in? %>
+      <div class = "logoutbutton">
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete, :style => "align :right") %>
+      </div>
+    <% end %>     
     <li>
         <% if user_signed_in? == false %>
           <%= form_for(:user, :url => session_path(:user)) do |f| %>
