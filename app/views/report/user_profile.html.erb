@@ -2,7 +2,12 @@
 
 <h2>
 	<% @reports.each do |r| %>
-		<p><%= r.title %></p>
+		<p><%= r.report_type %></p>
+		<p><%= r.time %></p>
+		<p><%= r.address %></p>
+		<p><%= r.description %></p>
+		<button><%= link_to 'Edit Report' , edit_report_path(r) %></button>
+		<br/>
 	<% end %>
 </h2>
 

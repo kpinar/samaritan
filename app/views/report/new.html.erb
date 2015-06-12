@@ -1,6 +1,6 @@
 <section id="about" class="about-section text-center bg-gray">
 	<div class="report-form">
-	<%= simple_form_for :report, url: report_index_path do |f| %>
+	<%= simple_form_for [current_user, @report], url: report_index_path do |f| %>
 	  <%= f.input :report_type, collection: ["Arson","Assault","Disorderly Conduct","Drug","Harassment","Hate Crime","Homicide","Kidnapping","Sexual Assault","Shooting","Stabbing","Stalking","Theft","Vandalism"] %>
 	  <br>
 	  <%= f.input :address, placeholder: "123 Street City, State" %>
