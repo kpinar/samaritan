@@ -16,7 +16,8 @@ class ReportController < ApplicationController
 	              coordinates: [report.longitude, report.latitude]},
 	            properties: {
 	                title: report.report_type,
-	                description: report.address,
+	                description: report.description,
+	                address: report.address,
 	                'marker-size': 'large',
 	                'marker-color': '#F53333',
 	                'marker-symbol': 'hospital'
@@ -30,7 +31,8 @@ class ReportController < ApplicationController
 	              coordinates: [report.longitude, report.latitude]},
 	            properties: {
 	                title: report.report_type,
-	                description: report.address,
+	                description: report.description,
+	                address: report.address,
 	                'marker-size': 'large',
 	                'marker-color': '#FFA347',
 	                'marker-symbol': 'hospital'
@@ -44,7 +46,8 @@ class ReportController < ApplicationController
 	              coordinates: [report.longitude, report.latitude]},
 	            properties: {
 	                title: report.report_type,
-	                description: report.address,
+	                description: report.description,
+	                address: report.address,
 	                'marker-size': 'large',
 	                'marker-color': '#FFD738',
 	                'marker-symbol': 'hospital'

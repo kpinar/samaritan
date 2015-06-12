@@ -35,7 +35,20 @@
         var myLocations = L.mapbox.featureLayer()
           .loadURL('/report.json')
           .addTo(map)
-        
+
+        // Clusters take 2
+          // var markers = new L.MarkerClusterGroup(myLocations);
+
+          //     for (var i = 0; i < addressPoints.length; i++) {
+          //         var a = addressPoints[i];
+          //         var title = a[2];
+          //         var marker = L.marker(new L.LatLng(a[0], a[1]), {
+          //         });
+          //         markers.addLayer(marker);
+          //     }
+          //     map.addLayer(markers);
+        // Clusters take 2
+   
 
         // List take 2
         var markerList = document.getElementById('listings');
@@ -47,7 +60,7 @@
                 var link = item.appendChild(document.createElement('a'));
                 link.innerHTML = layer.toGeoJSON().properties.title;
                 link.className = 'title';
-                link.innerHTML += '<br /><small class="quiet">' + layer.toGeoJSON().properties.description + '</small>';
+                link.innerHTML += '<br /><small class="quiet">' + layer.toGeoJSON().properties.address + '</small>';
               
                 item.onclick = function() {
                    map.setView(layer.getLatLng(), 16);
@@ -79,6 +92,7 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
           <div class="section-heading">
+          <div id="txt"></div>
             <h2>About</h2>
             <p>Lorem ipsum dolor sit amet, no nisl mentitum recusabo per, vim at blandit qualisque dissentiunt. Diam efficiantur conclusionemque ut has</p>
           </div>
