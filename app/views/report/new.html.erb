@@ -1,11 +1,18 @@
-<div class="report-form">
-<%= simple_form_for :report, url: report_index_path do |f| %>
-  <%= f.input :report_type, collection: ["Arson","Assault","Disorderly Conduct","Drug","Harassment","Hate Crime","Homicide","Kidnapping","Sexual Assault","Shooting","Stabbing","Stalking","Theft","Vandalism"] %>
-  <%= f.input :address, placeholder: "123 Street City, State" %>
-  <%= f.input :description, as: :text, placeholder: "Details here..." %>
-  <%= f.input :time, collection: ["Just Now","15 Minutes Ago","30 Minutes Ago","45 Minutes Ago","1 Hour Ago","> 1 Hour Ago"], label: "When", default: ["Just Now"] %>
-  <%= f.button :submit, class: "btn btn-skin scroll" %>
-<% end %>
-<br>
-<%= link_to "Back", report_index_path, class: "btn btn-skin scroll" %>
-</div>
+<section id="about" class="about-section text-center bg-gray">
+	<div class="report-form">
+	<%= simple_form_for :report, url: report_index_path do |f| %>
+	  <%= f.input :report_type, collection: ["Arson","Assault","Disorderly Conduct","Drug","Harassment","Hate Crime","Homicide","Kidnapping","Sexual Assault","Shooting","Stabbing","Stalking","Theft","Vandalism"] %>
+	  <br>
+	  <%= f.input :address, placeholder: "123 Street City, State" %>
+	  <br>
+	  <%= f.input :description, as: :text, placeholder: "Details here..." %>
+	  <br>
+	  <%= f.input :time, collection: ["Just Now","15 Minutes Ago","30 Minutes Ago","45 Minutes Ago","1 Hour Ago","> 1 Hour Ago"], label: "When", default: ["Just Now"] %>
+	  <br>
+	  <%= f.button :submit, class: "btn btn-skin scroll" %>
+	  <br>
+	<% end %>
+	<br>
+	<%= link_to "Back", report_index_path, class: "btn btn-skin scroll" %>
+	</div>
+</section>
