@@ -2,10 +2,8 @@
 
 <h2>
 	<% @reports.each do |r| %>
-	<%= link_to r.title , report_path(current_user, r) %>
-		<br/>
-		<p><%= r.description %></p>
+		<p><%= r.title %></p>
 	<% end %>
 </h2>
 
-<button><%= link_to 'New Board' , new_user_board_path(current_user) %></button>
+<button><%= link_to 'New Report' , new_report_path %></button>
