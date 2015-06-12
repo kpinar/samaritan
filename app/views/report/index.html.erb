@@ -36,86 +36,13 @@
 <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css' rel='stylesheet' />
 <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/css/font-awesome.min.css' rel='stylesheet' />
       <div id='map' class='map'> </div>
-      <!-- <div id='info' class='info'></div>
-      -->
         <script>
         L.mapbox.accessToken = 'pk.eyJ1IjoibWJpZ2dpbnMiLCJhIjoiMTdiMjNiZDIzNmRkZWQzNGFkYmM4NjEwZWVhNDk0ZTkifQ.EXAD9MHfkO-LURfX3kqGyQ';
-        var geojson = [
-            {
-              "type": "FeatureCollection",
-              "features": [
-                {
-                  "type": "Feature",
-                  "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                      -77.034084142948,
-                      38.909671288923
-                    ]
-                  },
-                  "properties": {
-                    "phoneFormatted": "(202) 234-7336",
-                    "phone": "2022347336",
-                    "address": "1471 P St NW",
-                    "city": "Washington DC",
-                    "country": "United States",
-                    "crossStreet": "at 15th St NW",
-                    "postalCode": "20005",
-                    "state": "D.C."
-                  }
-                },
-                {
-                  "type": "Feature",
-                  "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                      -77.049766,
-                      38.900772
-                    ]
-                  },
-                  "properties": {
-                    "phoneFormatted": "(202) 507-8357",
-                    "phone": "2025078357",
-                    "address": "2221 I St NW",
-                    "city": "Washington DC",
-                    "country": "United States",
-                    "crossStreet": "at 22nd St NW",
-                    "postalCode": "20037",
-                    "state": "D.C."
-                  }
-                },
-                {
-                  "type": "Feature",
-                  "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                      -77.043929,
-                      38.910525
-                    ]
-                  },
-                  "properties": {
-                    "phoneFormatted": "(202) 387-9338",
-                    "phone": "2023879338",
-                    "address": "1512 Connecticut Ave NW",
-                    "city": "Washington DC",
-                    "country": "United States",
-                    "crossStreet": "at Dupont Circle",
-                    "postalCode": "20036",
-                    "state": "D.C."
-                  }
-                }
-              ]
-            }
-        ];
+       
         var map = L.mapbox.map('map', 'mbiggins.md9k8mo8')
-        .setView([38.909671288923, -77.034084142948], 16);
+        .setView([38.8977, -77.0366], 16);
 
         map.scrollWheelZoom.disable();
-
-        
-        var locations = L.mapbox.featureLayer().addTo(map);
-
-        locations.setGeoJSON(geojson);
 
         var myLocations = L.mapbox.featureLayer()
           .loadURL('/report.json')
@@ -123,107 +50,29 @@
         
 
         // List take 2
-        // var info = document.getElementById('info');
-        // myLocations.eachLayer(function(marker) {
-        //     var link = info.appendChild(document.createElement('a'));
-        //     link.className = 'item';
-        //     link.href = '#';
+        var markerList = document.getElementById('listings');
 
-        //     // Populate content from each markers object.
-        //     link.innerHTML = marker.feature.properties.title +
-        //       '<br /><small>' + marker.feature.properties.description + '</small>';
-        //     link.onclick = function() {
-        //       if (/active/.test(this.className)) {
-        //         this.className = this.className.replace(/active/, '').replace(/\s\s*$/, '');
-        //       } else {
-        //         var siblings = info.getElementsByTagName('a');
-        //         for (var i = 0; i < siblings.length; i++) {
-        //           siblings[i].className = siblings[i].className
-        //             .replace(/active/, '').replace(/\s\s*$/, '');
-        //         };
-        //         this.className += ' active';
+        myLocations.on('ready', function(e) {
+            myLocations.eachLayer(function(layer) {
+                var item = markerList.appendChild(document.createElement('div'));
+                item.className = "item";
+                var link = item.appendChild(document.createElement('a'));
+                link.innerHTML = layer.toGeoJSON().properties.title;
+                link.className = 'title';
+                link.innerHTML += '<br /><small class="quiet">' + layer.toGeoJSON().properties.description + '</small>';
+              
+                item.onclick = function() {
+                   map.setView(layer.getLatLng(), 16);
+                   layer.openPopup();
+                   setActive(item);
+                };
 
-        //         // When a menu item is clicked, animate the map to center
-        //         // its associated marker and open its popup.
-        //         map.panTo(marker.getLatLng());
-        //         marker.openPopup();
-        //       }
-        //       return false;
-        //   };
-        // });
+                var popup = '<h3>'+layer.toGeoJSON().properties.title+'</h3><div>' + layer.toGeoJSON().properties.description;
+                popup += '</div>';
+                layer.bindPopup(popup);
+            });
+        });
         // List take 2
-
-
-
-        function setActive(el) {
-          var siblings = listings.getElementsByTagName('div');
-          for (var i = 0; i < siblings.length; i++) {
-            siblings[i].className = siblings[i].className
-            .replace(/active/, '').replace(/\s\s*$/, '');
-          }
-
-          el.className += ' active';
-        }
-
-        var listings = document.getElementById('listings');
-        locations.eachLayer(function(locale) {
-
-          // Shorten locale.feature.properties to just `prop` so we're not
-          // writing this long form over and over again.
-          var prop = locale.feature.properties;
-
-          // Each marker on the map.
-          var popup = '<h3>Sweetgreen</h3><div>' + prop.address;
-
-          var listing = listings.appendChild(document.createElement('div'));
-          listing.className = 'item';
-
-          var link = listing.appendChild(document.createElement('a'));
-          link.href = '#';
-          link.className = 'title';
-
-          link.innerHTML = prop.address;
-          if (prop.crossStreet) {
-            link.innerHTML += '<br /><small class="quiet">' + prop.crossStreet + '</small>';
-            popup += '<br /><small class="quiet">' + prop.crossStreet + '</small>';
-          }
-
-          var details = listing.appendChild(document.createElement('div'));
-          details.innerHTML = prop.city;
-          if (prop.phone) {
-            details.innerHTML += ' &middot; ' + prop.phoneFormatted;
-          }
-
-          link.onclick = function() {
-            setActive(listing);
-
-            // When a menu item is clicked, animate the map to center
-            // its associated locale and open its popup.
-            map.setView(locale.getLatLng(), 16);
-            locale.openPopup();
-            return false;
-          };
-
-          // Marker interaction
-          locale.on('click', function(e) {
-            // 1. center the map on the selected marker.
-            map.panTo(locale.getLatLng());
-
-            // 2. Set active the markers associated listing.
-            setActive(listing);
-          });
-
-          popup += '</div>';
-          locale.bindPopup(popup);
-
-          locale.setIcon(L.icon({
-            iconUrl: 'marker.png',
-            iconSize: [56, 56],
-            iconAnchor: [28, 28],
-            popupAnchor: [0, -34]
-          }));
-
-      });
 
       // Search Bar Functionality & Locator
       map
