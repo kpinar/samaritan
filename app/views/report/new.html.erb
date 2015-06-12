@@ -1,4 +1,4 @@
-<section id="about" class="about-section text-center bg-gray">
+<div class="home-section text-center">
 	<div class="report-form">
 	<%= simple_form_for [current_user, @report], url: report_index_path do |f| %>
 	  <%= f.input :report_type, collection: ["Arson","Assault","Disorderly Conduct","Drug","Harassment","Hate Crime","Homicide","Kidnapping","Sexual Assault","Shooting","Stabbing","Stalking","Theft","Vandalism"] %>
@@ -15,4 +15,4 @@
 	<br>
 	<%= link_to "Back", report_index_path, class: "btn btn-skin scroll" %>
 	</div>
-</section>
+</div>
