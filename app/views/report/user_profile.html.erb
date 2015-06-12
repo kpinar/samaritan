@@ -1,14 +1,20 @@
-<h1>All Reports</h1> 
-
-<h2>
-	<% @reports.each do |r| %>
-		<p><%= r.report_type %></p>
-		<p><%= r.time %></p>
-		<p><%= r.address %></p>
-		<p><%= r.description %></p>
-		<button><%= link_to 'Edit Report' , edit_report_path(r) %></button>
-		<br/>
-	<% end %>
-</h2>
-
-<button><%= link_to 'New Report' , new_report_path %></button>
+<div class="home-section text-center bg-gray">
+	<h1>Profile</h1> 
+		<div class = "row">
+			<div class="col-md-4">
+				<h2>
+					<% i = 1 %>
+					<% @reports.each do |r| %>
+						<p><b><%= i %>. Incident: <%= r.report_type %></b></p>
+						<p><%= r.address %></p>
+						<p><%= r.time %></p>
+						<p><%= r.description %></p>
+						<%= link_to 'Edit Report', edit_report_path(r), class: "btn btn-skin scroll" %>
+						<br>
+						<br>
+						<% i+= 1 %>
+					<% end %>
+				</h2>
+			</div>
+		</div>
+</div>
