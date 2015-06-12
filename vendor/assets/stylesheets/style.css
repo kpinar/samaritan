@@ -524,6 +524,7 @@ input.gn-search:focus {
 ============================ */
 
 .about-section {
+    border-top: 60px solid #DFD5CB;
     height: 100%;
     padding-bottom: 110px;
 		display:block;
