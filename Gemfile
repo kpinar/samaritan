@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.1'
 
 gem 'twitter-bootstrap-rails'
 gem 'omniauth-facebook'
@@ -59,6 +60,3 @@ group :development, :test do
   gem 'pry-rails'
   gem 'quiet_assets'
 end
-
-ruby "2.2.1"
-
